@@ -12,6 +12,9 @@
     "paths": {
       "ethos-ui": [
         "./lib/index.ts"
+      ],
+      "ethos-ui/index.css": [
+        "./lib/index.css"
       ]
     },
     /* Bundler mode */

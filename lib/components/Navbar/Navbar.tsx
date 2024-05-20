@@ -16,8 +16,9 @@ interface NavbarProps {
 
 const Navbar = ({title, icon, actionButton, onNavigateHome, leftContent, rightContent}: NavbarProps) => {
     return <header
-        className="sticky bg-white z-8 top-0 flex h-16 items-center gap-4 border-b border-b-gray-100 py-3 px-4 md:px-6 w-full m-auto">
-        <div className="w-full max-w-screen-lg mx-auto items-center flex">
+        style={{zIndex: 9999}}
+        className="sticky bg-white top-0 flex h-16 items-center gap-4 border-b border-b-gray-100 py-3 px-1 md:px-6 w-full md:m-auto">
+        <div className="w-full max-w-screen-lg justify-between pr-4 md:mx-auto items-center flex">
             <nav
                 className="flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
                 <Button onClick={onNavigateHome}

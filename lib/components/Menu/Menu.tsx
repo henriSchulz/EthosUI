@@ -1,5 +1,4 @@
-import {Dispatch, MouseEventHandler, ReactNode, SetStateAction, useEffect} from 'react';
-import {motion} from "framer-motion";
+import {Dispatch, MouseEventHandler, ReactNode, SetStateAction, useEffect, useRef} from 'react';
 
 
 interface MenuProps {
@@ -10,10 +9,9 @@ interface MenuProps {
 
 
 const Menu = ({menuTrigger, showState, children}: MenuProps) => {
-
+    const menuRef = useRef(null);
     useEffect(() => {
         const handleClick = (e: MouseEvent) => {
-            console.log(e.target)
             if (showState[0] && !document.getElementById("menu")?.contains(e.target as Node)) {
                 showState[1](false)
             }
@@ -21,6 +19,15 @@ const Menu = ({menuTrigger, showState, children}: MenuProps) => {
 
         if (showState[0]) {
             setTimeout(() => document.addEventListener("click", handleClick), 100)
+            const el = menuRef.current as unknown as HTMLElement | undefined;
+            const rect = el?.getBoundingClientRect();
+            if (rect && rect.right > window.innerWidth) {
+                // If it is, set the right CSS property to 0 to move it to the left
+                el!.style.right = '0';
+            } else {
+                // Otherwise, remove the right property to let it default to its normal position
+                el!.style.right = 'auto';
+            }
         }
 
         return () => {
@@ -35,29 +42,11 @@ const Menu = ({menuTrigger, showState, children}: MenuProps) => {
             {menuTrigger}
         </div>
 
-        {showState[0] && <motion.nav id="menu"
-                                     initial={{
-                                         opacity: 0,
-                                         x: "10%",
-                                         scale: 0.9
-                                     }}
-
-                                     animate={{
-                                         opacity: 1,
-                                         x: 0,
-                                         scale: 1
-                                     }}
-                                     exit={{
-                                         opacity: 0,
-                                         x: "10%",
-                                         scale: 0.9
-                                     }}
-
-
-                                     className="absolute top-12 z-10 w-48 rounded-xl border-2 border-gray-100 bg-white p-3 text-gray-700 shadow-sm">
+        {showState[0] && <nav ref={menuRef} id="menu"
+                              className="menu-animation absolute top-12 z-10 w-48 rounded-xl border-2 border-gray-100 bg-white p-3 text-gray-700 shadow-sm">
 
             {children}
-        </motion.nav>}
+        </nav>}
     </div>
 
 }
@@ -77,10 +66,10 @@ interface MenuItemProps {
 
 const MenuItem = ({children, onClick, className}: MenuItemProps) => {
     return <div className="mb-1">
-        <motion.button onClick={onClick} whileHover={{scale: 0.97}} whileTap={{scale: 0.93}}
-                       className={"rounded-lg p-2 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex " + className + " "}>
+        <button onClick={onClick}
+                className={"btn-animation rounded-lg px-2 py-4 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex " + className + " "}>
             {children}
-        </motion.button>
+        </button>
     </div>
 }
 

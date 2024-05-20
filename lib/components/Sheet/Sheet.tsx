@@ -1,4 +1,3 @@
-import {motion} from "framer-motion";
 import {Button} from "../Button/Button";
 import {Dispatch, ReactNode, SetStateAction} from "react";
 import {Headline} from "../Headline/Headline";
@@ -15,19 +14,10 @@ interface SheetProps {
 
 const Sheet = ({showState, title, subtitle, children}: SheetProps) => {
 
-    return <motion.div
-        initial={{
-            opacity: 0,
-            scale: 0.9
-        }}
-        animate={{
-            opacity: 1,
-            scale: 1
-        }}
-        exit={{opacity: 0, scale: 0.9}}
+    return <div
         style={{zIndex: 9999}}
-        className="fixed inset-0 h-full w-full bg-white p-4">
-        <Button variant="rounded" onClick={() => showState[1](false)}
+        className="sheet-animation fixed inset-0 h-full w-full bg-white p-4 grid content-center">
+        <Button variant="tertiary" onClick={() => showState[1](false)}
                 className="absolute right-4 top-4 lg:right-10 lg:top-10 px-6 py-8 rounded-3xl">
             <svg width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
@@ -40,23 +30,24 @@ const Sheet = ({showState, title, subtitle, children}: SheetProps) => {
             </svg>
         </Button>
 
-        <motion.main layout layoutId="create-template-main"
-                     className="mt-40 flex flex-col items-center justify-center">
-            <div className="mb-12 text-center">
-                <Headline variant="h1">
-                    {title}
-                </Headline>
-                <Text className="mt-1">
-                    {subtitle}
-                </Text>
-            </div>
-            <div className="max-w-screen-sm w-full">
-                {children}
-            </div>
-            <div className="h-0 md:h-6"></div>
-        </motion.main>
 
-    </motion.div>
+            <main className="flex flex-col items-center justify-center">
+                <div className="mb-12 text-center">
+                    <Headline variant="h1">
+                        {title}
+                    </Headline>
+                    <Text className="mt-1">
+                        {subtitle}
+                    </Text>
+                </div>
+                <div className="max-w-screen-sm w-full">
+                    {children}
+                </div>
+                <div className="h-0 md:h-6"></div>
+            </main>
+
+
+    </div>
 }
 
 Sheet.displayName = 'Sheet';

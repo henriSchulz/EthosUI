@@ -1,7 +1,8 @@
 {
   "name": "ethos-ui",
-  "version": "1.1.4",
+  "version": "1.2.8",
   "author": "Henri Schulz",
+  "repository": "https://github.com/henriSchulz/EthosUI.git",
   "type": "module",
   "types": "./dist/ethos-ui.d.ts",
   "files": [
@@ -13,6 +14,9 @@
     ".": {
       "import": "./dist/ethos-ui.js",
       "require": "./dist/ethos-ui.cjs.js"
+    },
+    "./index.css": {
+      "import": "./dist/style.css"
     }
   },
   "scripts": {
@@ -25,8 +29,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vite-plugin-dts": "^3.9.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@emotion/is-prop-valid": "^1.2.2",
@@ -40,11 +43,12 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "framer-motion": "^11.1.9",
     "postcss": "^8.4.38",
+    "react-toastify": "^10.0.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.1"
   }
 }

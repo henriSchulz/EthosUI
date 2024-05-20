@@ -1,6 +1,6 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react"
 import {cn} from "../../utils.ts";
-import {motion} from "framer-motion";
+
 
 interface SelectProps {
     options: { label: string, value: string }[]
@@ -84,13 +84,11 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
 
     return (
         <div style={{zIndex: 1000}} id="select" className="relative min-w-48">
-            <motion.div
-                whileHover={{scale: 0.97}}
-                // whileTap={{scale: 0.93}}
+            <div
                 onKeyDown={e => e.key === "Enter" && setSelectOpen(prev => !prev)}
 
                 onClick={() => setSelectOpen(prev => !prev)}
-                className={cn("relative flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 p-2 py-4", className)}>
+                className={cn("btn-animation relative flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 p-2 py-4", className)}>
                 <div
                     className="absolute select-none px-2 text-xl font-bold text-gray-700 md:px-4 md:text-3xl flex items-center gap-2 justify-between w-full"
                 >
@@ -108,38 +106,22 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
                 <div
                     className={"z-10 bg-transparent py-4 px-6 text-xl font-bold focus:outline-none md:text-3xl"}
                 />
-            </motion.div>
+            </div>
 
-            {selectOpen && <motion.div
-                initial={{
-                    opacity: 0,
-                    y: "-10%",
-                    scale: 0.9
-                }}
-
-                animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1
-                }}
-                exit={{
-                    opacity: 0,
-                    y: "-10%",
-                    scale: 0.9
-                }}
+            {selectOpen && <div
                 style={{zIndex: 100}}
-                className="max-h-72 overflow-scroll w-full absolute mt-2 top-12 z-10 rounded-xl border-2 border-gray-100 bg-white py-3 text-gray-700 shadow-sm">
+                className="select-animation max-h-72 overflow-scroll w-full absolute mt-2 top-12 z-10 rounded-xl border-2 border-gray-100 bg-white py-3 text-gray-700 shadow-sm">
 
                 {options.map((option, index) => {
                     const isActive = valueState[0] === option.value
                     return <div key={index} id={"option-" + index}>
-                        <motion.button
+                        <button
 
                             onClick={() => selectValue(option.value)}
-                            // whileHover={{scale: 0.97}}
-                            whileTap={{scale: 0.97}}
+
+
                             className={cn(
-                                "px-2 py-4 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex",
+                                "btn-animation px-2 py-4 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex",
                                 isActive && "bg-gray-100")
                             }
                         >
@@ -155,7 +137,7 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
                                     {option.label}
                               </span>
                             </span>
-                        </motion.button>
+                        </button>
 
                         {
                             index !== options?.length - 1 && <div className="border-b border-b-gray-100"/>
@@ -163,7 +145,7 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
                     </div>
                 })}
 
-            </motion.div>}
+            </div>}
         </div>
     )
 }

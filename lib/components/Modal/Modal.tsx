@@ -1,5 +1,4 @@
-import {motion} from "framer-motion";
-import {ReactNode, FC} from "react";
+import {ReactNode, FC, useEffect} from "react";
 import {Headline} from "../Headline/Headline";
 import {Text} from "../Text/Text";
 import {Button} from "../Button/Button";
@@ -17,27 +16,31 @@ interface ModalProps {
 
 const Modal: FC<ModalProps> = ({title, subtitle, children, onClose, submitButton}) => {
 
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = "auto";
+        }
+    }, []);
+
     return <div>
 
-        <motion.div onClick={onClose} initial={{opacity: 0}} transition={{
-            duration: 0.25
-        }} style={{zIndex: 10000}} animate={{opacity: 1}} exit={{opacity: 0}}
-                    className="fixed overflow-hidden inset-0 flex items-center justify-center bg-gray-800/40"></motion.div>
+        <div onClick={onClose} style={{zIndex: 10000}}
+             className="modal-bg-animation fixed overflow-hidden inset-0 flex items-center justify-center bg-gray-800/40"></div>
 
-        <motion.div
-            className="fixed inset-4 m-auto h-fit max-h-[calc(100%-32px)] max-w-lg overflow-y-visible rounded-3xl bg-white p-4 shadow-lg md:inset-0 md:w-full"
-            initial={{scale: 0.9, opacity: 0}}
-            animate={{scale: 1, opacity: 1}}
-            transition={{duration: 0.1, delay: 0.25}}
+        <div autoFocus
+            className="modal-animation fixed inset-4 m-auto h-fit max-h-[calc(100%-32px)] max-w-lg overflow-y-visible rounded-3xl bg-white p-4 shadow-lg md:inset-0 md:w-full"
             style={{zIndex: 10001}}
-            exit={{scale: 0.9, opacity: 0}}>
+        >
 
 
             <div className="absolute right-4 top-4">
                 <div className="h-8 w-8">
                     <Button onClick={onClose}
-                            variant="rounded"
-                            className="absolute right-0 top-0"
+                            variant="tertiary"
+                            className="absolute right-0 top-0 px-3.5"
                             type="button">
                         <svg width="1em" height="1em" viewBox="0 0 48 48" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +58,7 @@ const Modal: FC<ModalProps> = ({title, subtitle, children, onClose, submitButton
             <div className="flex flex-col items-center text-center">
                 <Headline variant="h2"
                           className="mt-4 text-2xl font-bold leading-none md:mt-8 md:text-3xl">{title}</Headline>
-                <Text className="mt-1 whitespace-pre text-sm leading-6 text-gray-500 md:text-base">{subtitle}</Text>
+                <Text className="mt-1 text-sm leading-6 text-gray-500 md:text-base break-words overflow-x-hidden max-w-full">{subtitle}</Text>
                 <div className="mt-4 w-full px-4 md:mt-8">
                     {children}
 
@@ -66,7 +69,7 @@ const Modal: FC<ModalProps> = ({title, subtitle, children, onClose, submitButton
                         {submitButton.text}</Button>}
                 </div>
             </div>
-        </motion.div>
+        </div>
     </div>
 
 };
