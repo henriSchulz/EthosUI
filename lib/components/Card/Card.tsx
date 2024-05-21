@@ -10,7 +10,7 @@ type CardProps = DefaultDivProps & {
 const Card = (props: CardProps) => {
     const {children, className, ...rest} = props;
 
-    return <div {...rest} className={cn("border-2 bg-white border-gray-100 overflow-x-hidden break-words p-4 rounded-2xl", className)}>
+    return <div {...rest} className={cn("border-2 bg-white border-gray-100 break-words p-4 rounded-2xl", className)}>
         {children}
     </div>
 }

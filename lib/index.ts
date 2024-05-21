@@ -16,6 +16,7 @@ export type {ToastContainerProps} from "./components/ToastContainer/ToastContain
 export type {ToastProperties} from "./toast";
 export type {TabsProps} from "./components/Tabs/Tabs";
 export type {TooltipProps} from "./components/Tooltip/Tooltip";
+export type {ColorCircleProps} from "./components/ColorCircle/ColorCircle";
 
 export {Button} from "./components/Button/Button"
 export {Headline} from "./components/Headline/Headline"
@@ -34,8 +35,10 @@ export {FileInput} from "./components/FileInput"
 export {ToastContainer} from "./components/ToastContainer/ToastContainer"
 export {Tabs} from "./components/Tabs/Tabs"
 export {Tooltip} from "./components/Tooltip/Tooltip"
+export {ColorCircle} from "./components/ColorCircle/ColorCircle"
 
 import "./index.css"
+import "./sounds/click.mp3"
 
 export {toast} from "./toast"
 

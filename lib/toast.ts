@@ -1,4 +1,4 @@
-import {Id, toast as toastify} from "react-toastify";
+import {Id, toast as toastify, ToastOptions} from "react-toastify";
 
 interface ToastProperties {
     success: (content: string) => Id
@@ -14,20 +14,20 @@ interface ToastProperties {
 const toast = {
 
 
-    success: (content: string): Id => {
-        return toastify.success(content)
+    success: (content: string, options?: ToastOptions): Id => {
+        return toastify.success(content, options)
     },
 
-    error: (content: string): Id => {
-        return toastify.error(content, {theme: "colored"})
+    error: (content: string, options?: ToastOptions): Id => {
+        return toastify.error(content, {theme: "colored", ...options})
     },
 
     async promise<T>(promise: Promise<T>, contents: {
         pending: string,
         error: string | ((e: unknown) => string),
         success: string | ((result: T) => string)
-    }): Promise<T | null> {
-        const id = toastify.loading(contents.pending)
+    }, options?: ToastOptions): Promise<T | null> {
+        const id = toastify.loading(contents.pending, options)
 
         try {
             const result: T = await promise

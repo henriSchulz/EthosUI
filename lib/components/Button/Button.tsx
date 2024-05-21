@@ -1,5 +1,8 @@
 import {ButtonHTMLAttributes, ReactNode, useEffect, MouseEvent} from "react";
 import {cn} from "../../utils";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import ClickSound from "../../sounds/click.mp3";
 
 
 type DefaultButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -22,18 +25,14 @@ type ButtonProps = DefaultButtonProps & {
 }
 
 
-
 type ColorMap = Record<Color, Record<Exclude<Variant, "icon">, string>>
 
 const Button = (props: ButtonProps) => {
 
-    const {children, keyboardKey, id, variant, className, ...rest} = props;
+    const {children, mainColor, keyboardKey, id, variant, className, ...rest} = props;
 
 
     const base = "btn-animation block cursor-pointer text-center font-medium text-xl disabled:cursor-not-allowed disabled:opacity-70 flex justify-center items-center text-base py-5 px-6 leading-none h-10 md:h-11 rounded-xl leading-none"
-
-
-
 
 
     const colors: ColorMap = {
@@ -166,9 +165,6 @@ const Button = (props: ButtonProps) => {
         },
 
 
-
-
-
     }
 
     const isColorGiven = props.mainColor && colors[props.mainColor] !== undefined;
@@ -182,16 +178,15 @@ const Button = (props: ButtonProps) => {
     }
 
     const colorsByVariant: Record<Variant, string> = {
-        primary: isColorGiven ? colors[props.mainColor!].primary : colors.gray.primary,
-        secondary: isColorGiven ? colors[props.mainColor!].secondary : colors.blue.secondary,
-        tertiary: isColorGiven ? colors[props.mainColor!].tertiary : colors.gray.tertiary,
-        text: isColorGiven ? colors[props.mainColor!].text : colors.gray.text,
+        primary: isColorGiven ? colors[mainColor!].primary : colors.gray.primary,
+        secondary: isColorGiven ? colors[mainColor!].secondary : colors.blue.secondary,
+        tertiary: isColorGiven ? colors[mainColor!].tertiary : colors.gray.tertiary,
+        text: isColorGiven ? colors[mainColor!].text : colors.gray.text,
         icon: ""
     }
 
 
-
-    const classNames = cn(base, variants[variant ?? "primary"],colorsByVariant[variant ?? "primary"] ,className);
+    const classNames = cn(base, variants[variant ?? "primary"], colorsByVariant[variant ?? "primary"], className);
 
     const _id = id || "button-" + Math.random().toString(36).substring(7);
 
@@ -208,12 +203,12 @@ const Button = (props: ButtonProps) => {
     }, []);
 
 
-    return <button id={_id} {...rest}
+    return <button id={_id}  {...rest}
                    className={cn("flex items-center content-center justify-between", classNames)}
     >
         {children} {keyboardKey &&
-            <span
-                className={cn(`ml-4 keyboard-key px-2 border-2 border-gray-400 rounded-md py-1 grid items-center place-items-center`, variant === "secondary" && colorsByVariant["secondary"] ) }>
+        <span
+            className={cn(`ml-4 keyboard-key px-2 border-2 border-gray-400 rounded-md py-1 grid items-center place-items-center`, variant === "secondary" && colorsByVariant["secondary"])}>
             {keyboardKey.element}
         </span>}
     </button>

@@ -25,7 +25,7 @@ const Input = (props: InputProps) => {
         </div>}
         <textarea rows={rows ?? 1} id={randomId} {...rest} value={valueState[0]}
                   onChange={e => valueState[1](e.target.value)}
-                  className={cn("no-scrollbar whitespace-nowrap resize-none z-5 w-full h-full bg-transparent py-1 px-2 text-xl font-bold focus:outline-none md:py-2 md:px-4 md:text-3xl", fullWidth && "w-full", innerClassName)}
+                  className={cn("no-scrollbar resize-none z-5 w-full h-full bg-transparent py-1 px-2 text-xl font-bold focus:outline-none md:py-2 md:px-4 md:text-3xl", fullWidth && "w-full", rows === 1 && "whitespace-nowrap" , innerClassName)}
         />
     </div>
 

@@ -17,20 +17,18 @@ interface ImageCardProps {
 
 interface ImageCardSkeletonProps {
     width?: number // px
+    height?: number // px
     className?: string
 }
 
 const ImageCardSkeleton: FC<ImageCardSkeletonProps> = (props) => {
     const width = props.width ?? 300
-    const height = (10 / 16) * width
+    const height = props.height ?? (10 / 16) * width
     return <div
         style={{width, height}}
         className={cn("overflow-hidden rounded-2xl [backface-visibility:hidden] relative", props.className)}
     >
-
-        <Skeleton width={width} height={Math.floor(width * (10 / 16))} className="absolute aspect-video"/>
-
-
+        <Skeleton width={width} height={height} className="absolute aspect-video"/>
     </div>
 }
 

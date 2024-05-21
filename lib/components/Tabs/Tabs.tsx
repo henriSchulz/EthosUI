@@ -34,6 +34,8 @@ const Tabs = ({tabs, activeTabState, style, className, tabWidth}: TabsProps) => 
 
     const id = String(Math.floor(Math.random() * 1000))
 
+    if (tabs.length > 8) throw new Error("Tabs component can't have more than 8 tabs")
+
 
     // @ts-ignore
     return <div style={{...style, "--tab-width": tabWidth === "full" ? Infinity : tabWidth}} id={id}

@@ -4,6 +4,7 @@
   "author": "Henri Schulz",
   "repository": "https://github.com/henriSchulz/EthosUI.git",
   "type": "module",
+  "license": "MIT",
   "types": "./dist/ethos-ui.d.ts",
   "files": [
     "dist"
