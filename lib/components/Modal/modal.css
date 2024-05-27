@@ -1,0 +1,63 @@
+.modal-bg-animation {
+    animation: modal-bg-animation 0.25s;
+}
+
+@keyframes modal-bg-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-bg-animation-out {
+
+    animation: modal-bg-animation-out 0.25s;
+    animation-delay: 0.25s;
+}
+
+@keyframes modal-bg-animation-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.modal-animation {
+    animation: modal-animation 0.25s;
+    animation-delay: 0.25s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    opacity: 0;
+}
+
+@keyframes modal-animation {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-animation-out {
+    animation: modal-animation-out 0.25s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+}
+
+@keyframes modal-animation-out {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}

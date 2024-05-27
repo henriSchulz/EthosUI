@@ -1,0 +1,29 @@
+@import "generated-tab-classes.css";
+
+.tabs {
+    display: grid;
+    --tab-width: fit-content;
+    max-width: calc(var(--tab-width) * var(--count));
+    grid-template-columns: repeat(var(--count), 1fr);
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+}
+
+
+.tabs::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    ---width: calc(100% / var(--count));
+    width: var(---width);
+    border-radius: inherit;
+    background-color: rgb(229 231 235);
+    z-index: -1;
+    /*padding-left: 1.5rem;*/
+    /*padding-right: 1.5rem;*/
+    transform: scale(0.95, 0.75);
+    margin-left: calc(var(--active) * var(---width));
+    transition: margin-left 200ms cubic-bezier(0.4, 0.7, 1, 1);
+}
+

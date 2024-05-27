@@ -1,0 +1,53 @@
+@keyframes toast-animation {
+    from {
+        transform: translateY(-100%) scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+}
+
+@keyframes toast-out-animation {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%) scale(0.9);
+        opacity: 0;
+    }
+}
+
+.toast-out {
+    animation: toast-out-animation 0.3s;
+}
+
+.toast-in {
+    animation: toast-animation 0.3s;
+}
+
+
+.Toastify__toast--default, .Toastify__toast--success, .Toastify__toast--error, .Toastify__toast--warning, .Toastify__toast--info {
+    font-weight: 600 !important;
+    color: rgb(255, 255, 255) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    padding: 0.2rem 1rem !important;
+    margin-bottom: 0.5rem !important;
+    border-radius: 9999px !important;
+}
+
+.Toastify__toast--default, .Toastify__toast--success, .Toastify__toast--warning, .Toastify__toast--info {
+    background-color: #3C424D !important;
+}
+
+.Toastify__toast-icon > svg {
+    fill: rgb(255, 255, 255) !important;
+}
+

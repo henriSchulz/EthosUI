@@ -16,6 +16,7 @@ const ToastContainer: FC<ToastContainerProps> = ({style, className}) => {
                                        exit: "toast-out",
                                        collapse: false,
                                    })}
+                                   limit={3}
                                    hideProgressBar={true}
                                    newestOnTop={false}
                                    closeOnClick

@@ -1,8 +1,6 @@
 import {ButtonHTMLAttributes, ReactNode, useEffect, MouseEvent} from "react";
 import {cn} from "../../utils";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import ClickSound from "../../sounds/click.mp3";
+
 
 
 type DefaultButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -32,7 +30,7 @@ const Button = (props: ButtonProps) => {
     const {children, mainColor, keyboardKey, id, variant, className, ...rest} = props;
 
 
-    const base = "btn-animation block cursor-pointer text-center font-medium text-xl disabled:cursor-not-allowed disabled:opacity-70 flex justify-center items-center text-base py-5 px-6 leading-none h-10 md:h-11 rounded-xl leading-none"
+    const base = "select-none btn-animation block cursor-pointer text-center font-medium text-xl disabled:cursor-not-allowed disabled:opacity-70 flex justify-center items-center text-base py-3 px-6 leading-none rounded-xl leading-none"
 
 
     const colors: ColorMap = {
@@ -174,7 +172,7 @@ const Button = (props: ButtonProps) => {
         secondary: `border-2 `,
         tertiary: "",
         text: "",
-        icon: "block cursor-pointer text-center font-bold disabled:cursor-not-allowed disabled:opacity-70 flex justify-center p-0  items-center text-gray-800 text-base leading-none h-9 md:h-10 rounded-xl leading-none",
+        icon: "p-1 rounded-full border-2",
     }
 
     const colorsByVariant: Record<Variant, string> = {
@@ -182,13 +180,13 @@ const Button = (props: ButtonProps) => {
         secondary: isColorGiven ? colors[mainColor!].secondary : colors.blue.secondary,
         tertiary: isColorGiven ? colors[mainColor!].tertiary : colors.gray.tertiary,
         text: isColorGiven ? colors[mainColor!].text : colors.gray.text,
-        icon: ""
+        icon: isColorGiven ? colors[mainColor!].secondary : colors.teal.secondary,
     }
 
 
     const classNames = cn(base, variants[variant ?? "primary"], colorsByVariant[variant ?? "primary"], className);
 
-    const _id = id || "button-" + Math.random().toString(36).substring(7);
+    const _id = id || "button-" + Math.floor(Math.random() * 1000)
 
     useEffect(() => {
         if (keyboardKey) {

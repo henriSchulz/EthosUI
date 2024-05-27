@@ -1,38 +1,96 @@
-import {ReactNode, FC, useEffect} from "react";
+import {ReactNode, FC, useEffect, Dispatch, SetStateAction, useState} from "react";
 import {Headline} from "../Headline/Headline";
 import {Text} from "../Text/Text";
 import {Button} from "../Button/Button";
+import {useIsMount} from "../../utils.ts";
+import {Z_INDEX} from "../../index.ts";
+import {createPortal} from "react-dom";
+
+const widths = {
+    xs: "max-w-xs",
+    sm: "max-w-sm",
+    md: "max-w-md",
+    lg: "max-w-lg",
+    xl: "max-w-xl",
+    "2xl": "max-w-2xl",
+    "3xl": "max-w-3xl",
+    "4xl": "max-w-4xl",
+    "5xl": "max-w-5xl",
+    "6xl": "max-w-6xl",
+    "7xl": "max-w-7xl",
+    "8xl": "max-w-8xl",
+    "9xl": "max-w-9xl",
+
+}
 
 interface ModalProps {
     title: string;
     subtitle: string;
     children: ReactNode;
-    onClose: () => void;
+    showState: [boolean, Dispatch<SetStateAction<boolean>>];
     submitButton?: {
         text: string;
         onClick: () => void;
     }
+    size?: keyof typeof widths;
 }
 
-const Modal: FC<ModalProps> = ({title, subtitle, children, onClose, submitButton}) => {
+const Modal: FC<ModalProps> = ({title, size, subtitle, children, showState, submitButton}) => {
 
+    const [innerShowState, setInnerShowState] = useState(false);
+
+    const isMount = useIsMount();
 
     useEffect(() => {
-        document.body.style.overflow = "hidden";
+        if (showState[0]) {
+            document.body.style.overflow = "hidden";
+        }
 
         return () => {
             document.body.style.overflow = "auto";
         }
     }, []);
 
-    return <div>
+    const _bgId = "modal-bg-" + Math.floor(Math.random() * 1000)
+    const _modalId = "modal-" + Math.floor(Math.random() * 1000)
 
-        <div onClick={onClose} style={{zIndex: 10000}}
-             className="modal-bg-animation fixed overflow-hidden inset-0 flex items-center justify-center bg-gray-800/40"></div>
+    useEffect(() => {
+        if (isMount) return;
 
-        <div autoFocus
-            className="modal-animation fixed inset-4 m-auto h-fit max-h-[calc(100%-32px)] max-w-lg overflow-y-visible rounded-3xl bg-white p-4 shadow-lg md:inset-0 md:w-full"
-            style={{zIndex: 10001}}
+        const open = showState[0];
+
+        console.log("Open", open)
+
+        if (open) {
+            setInnerShowState(true);
+        } else {
+            const bg = document.getElementById(_bgId);
+            const modal = document.getElementById(_modalId);
+            if (bg && modal) {
+                bg.classList.add("modal-bg-animation-out");
+                modal.classList.add("modal-animation-out");
+            }
+
+            setTimeout(() => setInnerShowState(false), 400);
+        }
+
+
+    }, [showState[0]]);
+
+
+    const width = widths[size ?? "lg"];
+
+    const onClose = () => showState[1](false);
+
+    if (!innerShowState) return <></>
+
+    return createPortal(<div>
+        <div onClick={onClose} style={{zIndex: Z_INDEX.MODAL_BG}} id={_bgId}
+             className="modal-bg-animation fixed top-0 left-0 inset-0 backdrop-blur-sm bg-black/30"></div>
+
+        <div autoFocus id={_modalId}
+             className={`modal-animation fixed inset-4 m-auto h-fit max-h-[calc(100%-32px)] ${width} overflow-y-visible rounded-3xl bg-white p-4 shadow-lg md:inset-0 md:w-full`}
+             style={{zIndex: Z_INDEX.MODAL}}
         >
 
 
@@ -55,22 +113,23 @@ const Modal: FC<ModalProps> = ({title, subtitle, children, onClose, submitButton
                     </Button>
                 </div>
             </div>
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center mt-4">
                 <Headline variant="h2"
                           className="mt-4 text-2xl font-bold leading-none md:mt-8 md:text-3xl">{title}</Headline>
-                <Text className="mt-1 text-sm leading-6 text-gray-500 md:text-base break-words overflow-x-hidden max-w-full">{subtitle}</Text>
+                <Text
+                    className="mt-1 text-sm leading-6 text-gray-500 md:text-base break-words overflow-x-hidden max-w-full">{subtitle}</Text>
                 <div className="mt-4 w-full px-4 md:mt-8">
                     {children}
 
 
                     {submitButton && <Button onClick={submitButton.onClick}
-                                             className="mt-6 w-full py-6"
+                                             className="mt-6 w-full py-4"
                                              variant="primary">
                         {submitButton.text}</Button>}
                 </div>
             </div>
         </div>
-    </div>
+    </div>, document.body);
 
 };
 

@@ -1,0 +1,30 @@
+.img-card-animation {
+    animation: img-card-animation 0.2s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    opacity: 0;
+}
+
+@keyframes img-card-animation {
+    from {
+        transform: translateY(20%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.img-card-hover-animation {
+    transition: transform 0.2s;
+    transform: scale(1) rotate(0);
+}
+
+.img-card-hover-animation:hover {
+    transform: scale(0.97) rotate(2deg);
+}
+
+.img-card-hover-animation:active {
+    transform: scale(0.93) rotate(2deg);
+}

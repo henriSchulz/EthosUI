@@ -1,0 +1,31 @@
+.select-animation {
+    animation: select-animation 0.2s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    opacity: 0;
+}
+@keyframes select-animation {
+    from {
+        transform: translateY(-10%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+
+.select-btn-animation {
+    transition: transform 0.2s;
+    transform: scale(1);
+}
+
+.select-btn-animation:hover {
+    transform: scale(0.99);
+}
+
+.select-btn-animation:active {
+    transform: scale(0.97);
+}
+

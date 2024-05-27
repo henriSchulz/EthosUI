@@ -16,8 +16,18 @@ const Headline = (props: HeadlineProps) => {
 
     if (loading?.isLoading) {
 
-        const heights = {h1: 36, h2: 36, h3: 32, h4: 28, h5: 28, h6: 24}
-        return <Skeleton height={heights[variant] * (loading.linebreaks ?? 1)} className={cn("w-full", className, loading.skeletonClassName)}/>
+        const heights = {
+            h1: 36,
+            h2: 36,
+            h3: 32,
+            h4: 28,
+            h5: 28,
+            h6: 24,
+
+
+        }
+        return <Skeleton height={heights[variant] * (loading.linebreaks ?? 1)}
+                         className={cn("w-full", className, loading.skeletonClassName)}/>
     }
 
     const variants: Record<HeadlineProps["variant"], string> = {
@@ -26,7 +36,7 @@ const Headline = (props: HeadlineProps) => {
         h3: "text-2xl font-bold text-gray-700",
         h4: "text-xl font-bold text-gray-700",
         h5: "text-lg font-bold text-gray-700",
-        h6: "text-base font-bold text-gray-700"
+        h6: "text-base font-bold text-gray-700",
     }
 
     const classNames = cn(variants[variant ?? "h1"], className);

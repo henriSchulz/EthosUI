@@ -1,6 +1,6 @@
 import {InputHTMLAttributes, ReactNode, useState} from "react";
-import {Button} from "./Button/Button";
-import {cn} from "../utils";
+import {Button} from "../Button/Button";
+import {cn} from "../../utils";
 
 
 type DefaultInputProps = InputHTMLAttributes<HTMLInputElement>;
@@ -23,10 +23,10 @@ const FileInput = (props: FileInputProps) => {
     const isFileImage = file?.type.startsWith("image")
 
     return <div
-        className={cn("relative flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 p-2", fullWidth && "w-full", className)}>
+        className={cn("shadow-sm relative flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-100", fullWidth && "w-full", className)}>
         <Button onClick={() => document.getElementById(id ?? randomId)?.click()}
                 variant="tertiary" style={style} type="button" name={"file-input-trigger-" + (id ?? randomId)}
-                className={"z-10 w-full bg-transparent py-1 px-2 text-xl font-bold focus:outline-none md:py-5 md:px-4 md:text-3xl"}
+                className={"z-10 w-full bg-transparent font-bold focus:outline-none px-4 py-2.5"}
         >
 
 
@@ -41,7 +41,7 @@ const FileInput = (props: FileInputProps) => {
                    {label}
                </span>}
                 {file &&
-                    <span className="overflow-hidden whitespace-nowrap w-[90%] text-lg md:text-2xl"
+                    <span className="overflow-hidden text-ellipsis whitespace-nowrap w-[90%] text-lg md:text-2xl"
 
                     >{file.name}</span>}
             </div>

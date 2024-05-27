@@ -5,12 +5,12 @@ import {cn} from "../../utils.ts";
 interface SelectProps {
     options: { label: string, value: string }[]
     valueState: [string | undefined, Dispatch<SetStateAction<string | undefined>>]
-    placeholder?: string
+    label?: string
     className?: string
 }
 
 
-const Select = ({options, className, valueState, placeholder}: SelectProps) => {
+const Select = ({options, className, valueState, label}: SelectProps) => {
     const [selectOpen, setSelectOpen] = useState(false);
 
 
@@ -88,12 +88,12 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
                 onKeyDown={e => e.key === "Enter" && setSelectOpen(prev => !prev)}
 
                 onClick={() => setSelectOpen(prev => !prev)}
-                className={cn("btn-animation relative flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 p-2 py-4", className)}>
+                className={cn("select-btn-animation relative flex items-center overflow-hidden rounded-2xl shadow-sm border border-gray-200 bg-gray-100 p-2 py-3", className)}>
                 <div
-                    className="absolute select-none px-2 text-xl font-bold text-gray-700 md:px-4 md:text-3xl flex items-center gap-2 justify-between w-full"
+                    className="absolute select-none px-2 text-xl font-bold text-gray-700 md:px-4 md:text-2xl flex items-center gap-2 justify-between w-full"
                 >
                     <span className="overflow-hidden text-nowrap text-ellipsis w-full">
-                        {valueState[0] ? options.find(v => valueState[0] === v.value)?.label ?? "" : placeholder}
+                        {valueState[0] ? options.find(v => valueState[0] === v.value)?.label ?? "" : label}
                     </span>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -104,13 +104,13 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
 
                 </div>
                 <div
-                    className={"z-10 bg-transparent py-4 px-6 text-xl font-bold focus:outline-none md:text-3xl"}
+                    className={"z-10 bg-transparent py-3 px-6 text-xl font-bold focus:outline-none md:text-3xl"}
                 />
             </div>
 
             {selectOpen && <div
                 style={{zIndex: 100}}
-                className="select-animation max-h-72 overflow-scroll w-full absolute mt-2 top-12 z-10 rounded-xl border-2 border-gray-100 bg-white py-3 text-gray-700 shadow-sm">
+                className="shadow-md select-animation max-h-72 overflow-scroll w-full absolute mt-2 top-12 z-10 rounded-xl border-2 border-gray-100 bg-white p-2 text-gray-700">
 
                 {options.map((option, index) => {
                     const isActive = valueState[0] === option.value
@@ -121,7 +121,7 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
 
 
                             className={cn(
-                                "btn-animation px-2 py-4 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex",
+                                "rounded-xl select-btn-animation my-1 px-2 py-3 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex",
                                 isActive && "bg-gray-100")
                             }
                         >
@@ -139,9 +139,9 @@ const Select = ({options, className, valueState, placeholder}: SelectProps) => {
                             </span>
                         </button>
 
-                        {
-                            index !== options?.length - 1 && <div className="border-b border-b-gray-100"/>
-                        }
+                        {/*{*/}
+                        {/*    index !== options?.length - 1 && <div className="border-b border-b-gray-100"/>*/}
+                        {/*}*/}
                     </div>
                 })}
 

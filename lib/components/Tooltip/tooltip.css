@@ -1,0 +1,29 @@
+.tooltip {
+    position: absolute;
+    display: block;
+    max-width: 300px;
+    width: max-content;
+    max-height: 250px;
+    overflow-y: scroll;
+    bottom: 105%;
+}
+
+
+.tool-tip-animation {
+    animation: tool-tip-animation 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+    transform-origin: center;
+    opacity: 0;
+}
+
+@keyframes tool-tip-animation {
+    from {
+        transform: translateY(10%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}

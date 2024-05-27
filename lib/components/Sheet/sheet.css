@@ -1,0 +1,11 @@
+.sheet-animation {
+    animation: modal-animation 0.2s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    opacity: 0;
+}
+
+.sheet-animation-out {
+    animation: modal-animation-out 0.2s;
+}
+

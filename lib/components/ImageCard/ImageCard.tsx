@@ -1,4 +1,4 @@
-import {FC, ReactNode, useEffect, useState} from "react";
+import {FC, ReactNode, useState} from "react";
 import {cn} from "../../utils";
 import {Skeleton} from "../Skeleton/Skeleton.tsx";
 
@@ -13,6 +13,7 @@ interface ImageCardProps {
     index?: number
     fill?: string // color
     fillRects?: string[] // colors
+    imageLoadingSkeleton?: boolean
 }
 
 interface ImageCardSkeletonProps {
@@ -34,7 +35,7 @@ const ImageCardSkeleton: FC<ImageCardSkeletonProps> = (props) => {
 
 const ImageCard: FC<ImageCardProps> = (props) => {
 
-    const {image, className, title, onClick, fill} = props
+    const {image, className, imageLoadingSkeleton, title, onClick, fill} = props
 
     const [imageLoaded, setImageLoaded] = useState<boolean>(false)
 
@@ -42,14 +43,8 @@ const ImageCard: FC<ImageCardProps> = (props) => {
 
     const height = props.height ?? (10 / 16) * width
 
-    useEffect(() => {
-        setTimeout(() => {
-            setImageLoaded(true)
-        }, 1000)
-    }, []);
 
-
-    return <div className="img-card-hover-animation">
+    return <div className="img-card-hover-animation w-fit">
         <div
             style={{width, height, animationDelay: `${(props.index ?? 0) * 0.1}s`}}
             onClick={onClick}
@@ -60,18 +55,18 @@ const ImageCard: FC<ImageCardProps> = (props) => {
                            draggable="false"
                            src={image}
                            className="w-full h-full aspect-video object-fill object-center"
-                           style={{display: imageLoaded ? 'block' : 'none'}}
+                           style={{display: imageLoadingSkeleton ? imageLoaded ? 'block' : 'none' : "block"}}
                            onLoad={() => setImageLoaded(true)}
             />}
 
-            {image && !imageLoaded &&
+            {image && !imageLoaded && imageLoadingSkeleton &&
                 <Skeleton width={width} height={height} className="absolute aspect-video"/>}
 
             {fill && <div className="absolute inset-0 bg-gray-100" style={{background: fill}}/>}
 
             {
                 props.fillRects && <div className="absolute">
-                    <svg width="100%" height="100%" viewBox={`0 0 ${width} ${Math.floor(width * (10 / 16)) + 10}`}
+                    <svg width="100%" height="100%" viewBox={`0 0 ${width-3} ${height + 10}`}
                          xmlns="http://www.w3.org/2000/svg">
                         <g>
                             {
@@ -93,15 +88,10 @@ const ImageCard: FC<ImageCardProps> = (props) => {
             }
 
 
-            <div
-                className="btn-animation leading-2 absolute left-3 bottom-3 right-3 mt-2 flex w-fit max-w-[calc(100%-24px)] items-center rounded-lg bg-white px-3 py-1 font-medium text-gray-700 shadow-sm">
-                <div onClick={onClick}
+            <div onClick={onClick}
+                 className="btn-animation gap-2 leading-2 absolute left-3 bottom-3 right-3 mt-2 flex w-fit max-w-[calc(100%-24px)] items-center rounded-lg bg-white px-3 py-1 font-medium text-gray-700 shadow-sm">
 
-                     className="inline-block h-[1em] w-[1em] leading-none mr-1">
-                    <p className="inline-block h-[1em] w-[1em] leading-none [&amp;_svg]:h-[1em] [&amp;_svg]:w-[1em]">
-                        {props.icon}
-                    </p>
-                </div>
+                {props.icon}
 
                 <p className="truncate select-none">{title}</p>
 

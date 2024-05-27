@@ -11,12 +11,15 @@ export type {MenuItemProps} from "./components/Menu/Menu";
 export type {SelectProps} from "./components/Select/Select";
 export type {ImageCardProps} from "./components/ImageCard/ImageCard";
 export type {SkeletonProps} from "./components/Skeleton/Skeleton";
-export type {FileInputProps} from "./components/FileInput";
-export type {ToastContainerProps} from "./components/ToastContainer/ToastContainer";
-export type {ToastProperties} from "./toast";
+export type {FileInputProps} from "./components/Input/FileInput.tsx";
+export type {ToastContainerProps} from "./components/toast/ToastContainer";
+export type {ToastProperties} from "./components/toast/toast.ts";
 export type {TabsProps} from "./components/Tabs/Tabs";
 export type {TooltipProps} from "./components/Tooltip/Tooltip";
 export type {ColorCircleProps} from "./components/ColorCircle/ColorCircle";
+export type {CodeboxProps} from "./components/Codebox/Codebox";
+export type {SideMenuProps} from "./components/SideMenu/SideMenu";
+export type {SidebarProps} from "./components/Sidebar/Sidebar.tsx";
 
 export {Button} from "./components/Button/Button"
 export {Headline} from "./components/Headline/Headline"
@@ -31,16 +34,30 @@ export {MenuItem} from "./components/Menu/Menu"
 export {Select} from "./components/Select/Select"
 export {ImageCard, ImageCardSkeleton} from "./components/ImageCard/ImageCard"
 export {Skeleton} from "./components/Skeleton/Skeleton"
-export {FileInput} from "./components/FileInput"
-export {ToastContainer} from "./components/ToastContainer/ToastContainer"
+export {FileInput} from "./components/Input/FileInput.tsx"
+export {ToastContainer} from "./components/toast/ToastContainer"
 export {Tabs} from "./components/Tabs/Tabs"
 export {Tooltip} from "./components/Tooltip/Tooltip"
 export {ColorCircle} from "./components/ColorCircle/ColorCircle"
+export {Codebox} from "./components/Codebox/Codebox"
+export {SideMenu} from "./components/SideMenu/SideMenu"
+export {Sidebar} from "./components/Sidebar/Sidebar.tsx"
 
 import "./index.css"
-import "./sounds/click.mp3"
 
-export {toast} from "./toast"
+export {toast} from "./components/toast/toast.ts"
+
+const BASE = 20000
+
+export const Z_INDEX = {
+    TOOLTIP: BASE + 4,
+    SIDEBAR: BASE,
+    SHEET: BASE + 3,
+    MODAL: BASE + 3,
+    MODAL_BG: BASE + 2,
+    NAVBAR: BASE + 1,
+    MENU: BASE + 4,
+}
 
 
 

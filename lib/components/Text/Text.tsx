@@ -14,13 +14,13 @@ const Text: FC<TextProps> = ({children, className, ...props}) => {
 
     if (props.loading?.isLoading) {
         return <Skeleton height={28 * (props.loading.linebreaks ?? 1)}
-                         className={cn("w-full", className, props.loading.skeletonClassName)}/>
+                         className={cn(className, props.loading.skeletonClassName)}/>
     }
 
-    const classNames = cn("text-base font-medium text-gray-500 lg:text-xl", className);
+    const classNames = cn("font-medium text-gray-500 text-xl", className);
 
 
-    return <span{...props} className={classNames}>{children}</span>;
+    return <p{...props} className={classNames}>{children}</p>;
 };
 
 Text.displayName = 'Text';

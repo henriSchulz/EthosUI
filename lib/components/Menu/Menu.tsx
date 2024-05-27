@@ -1,4 +1,6 @@
-import {Dispatch, MouseEventHandler, ReactNode, SetStateAction, useEffect, useRef} from 'react';
+import {Dispatch, MouseEventHandler, ReactNode, SetStateAction, useEffect, useState} from 'react';
+import {Z_INDEX} from "../../index.ts";
+import { useIsMount } from '../../utils.ts';
 
 
 interface MenuProps {
@@ -7,33 +9,47 @@ interface MenuProps {
     showState: [boolean, Dispatch<SetStateAction<boolean>>];
 }
 
-
 const Menu = ({menuTrigger, showState, children}: MenuProps) => {
-    const menuRef = useRef(null);
+
+    const isMount = useIsMount();
+
+    const [innerShowState, setInnerShowState] = useState(false)
+
+    const _id = "menu-" + Math.floor(Math.random() * 1000);
+
     useEffect(() => {
+
+        if (isMount) return;
+
+        const open = showState[0];
+
+        console.log("Open", open)
+
+        if (open) {
+            setInnerShowState(true);
+        } else {
+            const el = document.getElementById(_id);
+
+            if (el) {
+               el.classList.add("menu-animation-out");
+            }
+
+            setTimeout(() => setInnerShowState(false), 240);
+        }
+
+
+
         const handleClick = (e: MouseEvent) => {
             if (showState[0] && !document.getElementById("menu")?.contains(e.target as Node)) {
                 showState[1](false)
             }
         }
-
-        if (showState[0]) {
-            setTimeout(() => document.addEventListener("click", handleClick), 100)
-            const el = menuRef.current as unknown as HTMLElement | undefined;
-            const rect = el?.getBoundingClientRect();
-            if (rect && rect.right > window.innerWidth) {
-                // If it is, set the right CSS property to 0 to move it to the left
-                el!.style.right = '0';
-            } else {
-                // Otherwise, remove the right property to let it default to its normal position
-                el!.style.right = 'auto';
-            }
-        }
+        setTimeout(() => document.addEventListener("click", handleClick), 100)
 
         return () => {
             document.removeEventListener("click", handleClick);
         }
-    }, [showState]);
+    }, [showState[0]]);
 
 
     return <div className="relative">
@@ -42,8 +58,8 @@ const Menu = ({menuTrigger, showState, children}: MenuProps) => {
             {menuTrigger}
         </div>
 
-        {showState[0] && <nav ref={menuRef} id="menu"
-                              className="menu-animation absolute top-12 z-10 w-48 rounded-xl border-2 border-gray-100 bg-white p-3 text-gray-700 shadow-sm">
+        {innerShowState && <nav id={_id} style={{zIndex: Z_INDEX.MENU}}
+                              className="menu-animation inset-0 h-fit absolute right-0 top-12 w-48 rounded-xl border-2 border-gray-100 bg-white py-3 px-1 text-gray-700 shadow-md">
 
             {children}
         </nav>}
@@ -59,7 +75,7 @@ export type {MenuProps};
 
 
 interface MenuItemProps {
-    onClick: MouseEventHandler<HTMLButtonElement>
+    onClick?: MouseEventHandler<HTMLButtonElement>
     children: ReactNode;
     className?: string;
 }
@@ -67,7 +83,7 @@ interface MenuItemProps {
 const MenuItem = ({children, onClick, className}: MenuItemProps) => {
     return <div className="mb-1">
         <button onClick={onClick}
-                className={"btn-animation rounded-lg px-2 py-4 text-left w-full font-medium leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-50 md:flex " + className + " "}>
+                className={"btn-animation rounded-lg text-md px-2 py-3 text-left w-full font-bold leading-none last:mb-0 flex items-center text-gray-700 hover:bg-gray-100 md:flex " + className + " "}>
             {children}
         </button>
     </div>

@@ -1,7 +1,10 @@
 import {Button} from "../Button/Button";
-import {Dispatch, ReactNode, SetStateAction} from "react";
+import {Dispatch, ReactNode, SetStateAction, useEffect, useState} from "react";
 import {Headline} from "../Headline/Headline";
 import {Text} from "../Text/Text";
+import {Z_INDEX} from "../../index.ts";
+import {useIsMount} from "../../utils.ts";
+import {createPortal} from "react-dom";
 
 interface SheetProps {
     title: string
@@ -14,11 +17,39 @@ interface SheetProps {
 
 const Sheet = ({showState, title, subtitle, children}: SheetProps) => {
 
-    return <div
-        style={{zIndex: 9999}}
+    const isMount = useIsMount()
+
+    const [innerShow, setInnerShow] = useState(false)
+
+    const _id = "sheet-" + Math.floor(Math.random() * 1000)
+
+    useEffect(() => {
+        if (isMount) return;
+
+        const open = showState[0];
+
+        console.log("Open", open)
+
+        if (open) {
+            setInnerShow(true);
+        } else {
+            const el = document.getElementById(_id);
+
+            if (el) {
+                el.classList.add("sheet-animation-out");
+            }
+
+            setTimeout(() => setInnerShow(false), 200);
+        }
+    }, [showState[0]]);
+
+    if(!innerShow) return <></>
+
+    return createPortal(<div id={_id}
+        style={{zIndex: Z_INDEX.SHEET}}
         className="sheet-animation fixed inset-0 h-full w-full bg-white p-4 grid content-center">
         <Button variant="tertiary" onClick={() => showState[1](false)}
-                className="absolute right-4 top-4 lg:right-10 lg:top-10 px-6 py-8 rounded-3xl">
+                className="absolute right-4 top-4 lg:right-10 lg:top-10 p-6 rounded-3xl">
             <svg width="1.5em" height="1.5em" viewBox="0 0 48 48" fill="none"
                  xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd"
@@ -31,23 +62,23 @@ const Sheet = ({showState, title, subtitle, children}: SheetProps) => {
         </Button>
 
 
-            <main className="flex flex-col items-center justify-center">
-                <div className="mb-12 text-center">
-                    <Headline variant="h1">
-                        {title}
-                    </Headline>
-                    <Text className="mt-1">
-                        {subtitle}
-                    </Text>
-                </div>
-                <div className="max-w-screen-sm w-full">
-                    {children}
-                </div>
-                <div className="h-0 md:h-6"></div>
-            </main>
+        <main className="flex flex-col items-center justify-center">
+            <div className="mb-12 text-center">
+                <Headline variant="h1">
+                    {title}
+                </Headline>
+                <Text className="mt-1">
+                    {subtitle}
+                </Text>
+            </div>
+            <div className="max-w-screen-sm w-full">
+                {children}
+            </div>
+            <div className="h-0 md:h-6"></div>
+        </main>
 
 
-    </div>
+    </div>, document.body)
 }
 
 Sheet.displayName = 'Sheet';

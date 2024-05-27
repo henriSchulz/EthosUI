@@ -1,6 +1,7 @@
 # EthosUI
 
-Welcome to EthosUI, a modern React component library built on top of the utility-first CSS framework, Tailwind CSS. EthosUI provides a set of easily customizable and accessible UI components designed to integrate seamlessly into your React applications. By leveraging the power of Tailwind CSS, EthosUI offers flexibility and efficiency, enhancing your development workflow and helping you craft beautiful user interfaces with ease.
+Welcome to EthosUI, a modern React component library built on top of the utility-first CSS framework, Tailwind CSS. EthosUI provides a set of easily customizable and accessible UI components designed to integrate seamlessly into your React applications. 
+Visit the [EthosUI Documentation](https://docs-ethos-ui.web.app/) for a complete list of components and their props.
 
 ## Installation
 
@@ -33,9 +34,16 @@ In your Tailwind configuration file (`tailwind.config.js`), extend the content a
 
 This inclusion ensures that Tailwind CSS considers the classes used in EthosUI components when generating styles.
 
+### 4. Install react-toastify (If you want to use toasts Messages)
+
+Install react-toastify to use toast messages in your application. For more information, visit [react-toastify](https://www.npmjs.com/package/react-toastify).
+
+
 ## Usage
 
-You can import the components you need from the `ethos-ui` package directly. Here's a quick example to get you started:
+You can import the components you need from the `ethos-ui` package directly. 
+Visit the [EthosUI Documentation](https://docs-ethos-ui.web.app/) for a complete list of components and their props.
+Here's a quick example to get you started:
 
 ```jsx
 import React from 'react';
@@ -56,23 +64,6 @@ function App() {
 
 export default App;
 ```
-
-## Available Components
-
-EthosUI offers a variety of components you can use in your projects. Here are some of the main components exported by the library:
-
-- **Button**: Highly customizable button for user interactions.
-- **Headline, Text**: For displaying text in various sizes.
-- **Input**: For getting user input.
-- **Sheet**: A flexible container element.
-- **Card**: For containing elements about a single subject.
-- **Modal**: To overlay a small element over others.
-- **Navbar**: For navigation purposes.
-- **Menu, MenuItem** : For creating dropdown menus.
-- **Select**: Custom select element.
-- **ImageCard**: For displaying images with text.
-
-Each component comes with its own props for further customization. The details are provided in the TypeScript type definitions, which can also be imported for use with TypeScript.
 
 ## Contributing
 

@@ -1,0 +1,39 @@
+.menu-animation {
+    animation: menu-animation 0.2s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    opacity: 0;
+}
+
+.menu-animation-out {
+    animation: menu-animation-out 0.2s;
+    animation-fill-mode: forwards;
+    transform-origin: center;
+    opacity: 1;
+
+}
+
+
+/*add the  x animation*/
+
+@keyframes menu-animation {
+    from {
+        transform: translateX(10%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes menu-animation-out {
+    from {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(10%) scale(0.9);
+        opacity: 0;
+    }
+}

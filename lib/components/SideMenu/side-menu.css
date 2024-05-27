@@ -1,0 +1,27 @@
+@import "generated-side-menu-classes.css";
+
+
+.side-menu {
+    box-sizing: border-box;
+    --sm-height: calc(100% / var(--sm-count));
+    height: 100%;
+    max-height: calc(var(--sm-height) * var(--sm-count));
+    position: relative;
+    isolation: isolate;
+    width: fit-content;
+    /*max-width: fit-content;*/
+}
+
+.side-menu::after {
+    content: "";
+    position: absolute;
+    height: var(--sm-height);
+    inset: 0;
+    width: 100%;
+    border-radius: inherit;
+    background-color: rgb(229 231 235);
+    z-index: -1;
+    transition: top 200ms cubic-bezier(0.4, 0.7, 1, 1);
+    top: calc(var(--sm-active) * var(--sm-height));
+    transform: scale(0.93, 0.75);
+}
