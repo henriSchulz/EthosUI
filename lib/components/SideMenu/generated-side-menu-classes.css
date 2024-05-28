@@ -1,0 +1,800 @@
+
+.side-menu:has(.side-menu-item:nth-child(1)) {
+    --sm-count: 1;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(1)) {
+    --sm-active: 0;
+}
+
+.side-menu:has(.side-menu-item:nth-child(2)) {
+    --sm-count: 2;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(2)) {
+    --sm-active: 1;
+}
+
+.side-menu:has(.side-menu-item:nth-child(3)) {
+    --sm-count: 3;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(3)) {
+    --sm-active: 2;
+}
+
+.side-menu:has(.side-menu-item:nth-child(4)) {
+    --sm-count: 4;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(4)) {
+    --sm-active: 3;
+}
+
+.side-menu:has(.side-menu-item:nth-child(5)) {
+    --sm-count: 5;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(5)) {
+    --sm-active: 4;
+}
+
+.side-menu:has(.side-menu-item:nth-child(6)) {
+    --sm-count: 6;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(6)) {
+    --sm-active: 5;
+}
+
+.side-menu:has(.side-menu-item:nth-child(7)) {
+    --sm-count: 7;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(7)) {
+    --sm-active: 6;
+}
+
+.side-menu:has(.side-menu-item:nth-child(8)) {
+    --sm-count: 8;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(8)) {
+    --sm-active: 7;
+}
+
+.side-menu:has(.side-menu-item:nth-child(9)) {
+    --sm-count: 9;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(9)) {
+    --sm-active: 8;
+}
+
+.side-menu:has(.side-menu-item:nth-child(10)) {
+    --sm-count: 10;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(10)) {
+    --sm-active: 9;
+}
+
+.side-menu:has(.side-menu-item:nth-child(11)) {
+    --sm-count: 11;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(11)) {
+    --sm-active: 10;
+}
+
+.side-menu:has(.side-menu-item:nth-child(12)) {
+    --sm-count: 12;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(12)) {
+    --sm-active: 11;
+}
+
+.side-menu:has(.side-menu-item:nth-child(13)) {
+    --sm-count: 13;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(13)) {
+    --sm-active: 12;
+}
+
+.side-menu:has(.side-menu-item:nth-child(14)) {
+    --sm-count: 14;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(14)) {
+    --sm-active: 13;
+}
+
+.side-menu:has(.side-menu-item:nth-child(15)) {
+    --sm-count: 15;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(15)) {
+    --sm-active: 14;
+}
+
+.side-menu:has(.side-menu-item:nth-child(16)) {
+    --sm-count: 16;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(16)) {
+    --sm-active: 15;
+}
+
+.side-menu:has(.side-menu-item:nth-child(17)) {
+    --sm-count: 17;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(17)) {
+    --sm-active: 16;
+}
+
+.side-menu:has(.side-menu-item:nth-child(18)) {
+    --sm-count: 18;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(18)) {
+    --sm-active: 17;
+}
+
+.side-menu:has(.side-menu-item:nth-child(19)) {
+    --sm-count: 19;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(19)) {
+    --sm-active: 18;
+}
+
+.side-menu:has(.side-menu-item:nth-child(20)) {
+    --sm-count: 20;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(20)) {
+    --sm-active: 19;
+}
+
+.side-menu:has(.side-menu-item:nth-child(21)) {
+    --sm-count: 21;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(21)) {
+    --sm-active: 20;
+}
+
+.side-menu:has(.side-menu-item:nth-child(22)) {
+    --sm-count: 22;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(22)) {
+    --sm-active: 21;
+}
+
+.side-menu:has(.side-menu-item:nth-child(23)) {
+    --sm-count: 23;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(23)) {
+    --sm-active: 22;
+}
+
+.side-menu:has(.side-menu-item:nth-child(24)) {
+    --sm-count: 24;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(24)) {
+    --sm-active: 23;
+}
+
+.side-menu:has(.side-menu-item:nth-child(25)) {
+    --sm-count: 25;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(25)) {
+    --sm-active: 24;
+}
+
+.side-menu:has(.side-menu-item:nth-child(26)) {
+    --sm-count: 26;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(26)) {
+    --sm-active: 25;
+}
+
+.side-menu:has(.side-menu-item:nth-child(27)) {
+    --sm-count: 27;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(27)) {
+    --sm-active: 26;
+}
+
+.side-menu:has(.side-menu-item:nth-child(28)) {
+    --sm-count: 28;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(28)) {
+    --sm-active: 27;
+}
+
+.side-menu:has(.side-menu-item:nth-child(29)) {
+    --sm-count: 29;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(29)) {
+    --sm-active: 28;
+}
+
+.side-menu:has(.side-menu-item:nth-child(30)) {
+    --sm-count: 30;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(30)) {
+    --sm-active: 29;
+}
+
+.side-menu:has(.side-menu-item:nth-child(31)) {
+    --sm-count: 31;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(31)) {
+    --sm-active: 30;
+}
+
+.side-menu:has(.side-menu-item:nth-child(32)) {
+    --sm-count: 32;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(32)) {
+    --sm-active: 31;
+}
+
+.side-menu:has(.side-menu-item:nth-child(33)) {
+    --sm-count: 33;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(33)) {
+    --sm-active: 32;
+}
+
+.side-menu:has(.side-menu-item:nth-child(34)) {
+    --sm-count: 34;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(34)) {
+    --sm-active: 33;
+}
+
+.side-menu:has(.side-menu-item:nth-child(35)) {
+    --sm-count: 35;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(35)) {
+    --sm-active: 34;
+}
+
+.side-menu:has(.side-menu-item:nth-child(36)) {
+    --sm-count: 36;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(36)) {
+    --sm-active: 35;
+}
+
+.side-menu:has(.side-menu-item:nth-child(37)) {
+    --sm-count: 37;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(37)) {
+    --sm-active: 36;
+}
+
+.side-menu:has(.side-menu-item:nth-child(38)) {
+    --sm-count: 38;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(38)) {
+    --sm-active: 37;
+}
+
+.side-menu:has(.side-menu-item:nth-child(39)) {
+    --sm-count: 39;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(39)) {
+    --sm-active: 38;
+}
+
+.side-menu:has(.side-menu-item:nth-child(40)) {
+    --sm-count: 40;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(40)) {
+    --sm-active: 39;
+}
+
+.side-menu:has(.side-menu-item:nth-child(41)) {
+    --sm-count: 41;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(41)) {
+    --sm-active: 40;
+}
+
+.side-menu:has(.side-menu-item:nth-child(42)) {
+    --sm-count: 42;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(42)) {
+    --sm-active: 41;
+}
+
+.side-menu:has(.side-menu-item:nth-child(43)) {
+    --sm-count: 43;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(43)) {
+    --sm-active: 42;
+}
+
+.side-menu:has(.side-menu-item:nth-child(44)) {
+    --sm-count: 44;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(44)) {
+    --sm-active: 43;
+}
+
+.side-menu:has(.side-menu-item:nth-child(45)) {
+    --sm-count: 45;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(45)) {
+    --sm-active: 44;
+}
+
+.side-menu:has(.side-menu-item:nth-child(46)) {
+    --sm-count: 46;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(46)) {
+    --sm-active: 45;
+}
+
+.side-menu:has(.side-menu-item:nth-child(47)) {
+    --sm-count: 47;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(47)) {
+    --sm-active: 46;
+}
+
+.side-menu:has(.side-menu-item:nth-child(48)) {
+    --sm-count: 48;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(48)) {
+    --sm-active: 47;
+}
+
+.side-menu:has(.side-menu-item:nth-child(49)) {
+    --sm-count: 49;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(49)) {
+    --sm-active: 48;
+}
+
+.side-menu:has(.side-menu-item:nth-child(50)) {
+    --sm-count: 50;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(50)) {
+    --sm-active: 49;
+}
+
+.side-menu:has(.side-menu-item:nth-child(51)) {
+    --sm-count: 51;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(51)) {
+    --sm-active: 50;
+}
+
+.side-menu:has(.side-menu-item:nth-child(52)) {
+    --sm-count: 52;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(52)) {
+    --sm-active: 51;
+}
+
+.side-menu:has(.side-menu-item:nth-child(53)) {
+    --sm-count: 53;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(53)) {
+    --sm-active: 52;
+}
+
+.side-menu:has(.side-menu-item:nth-child(54)) {
+    --sm-count: 54;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(54)) {
+    --sm-active: 53;
+}
+
+.side-menu:has(.side-menu-item:nth-child(55)) {
+    --sm-count: 55;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(55)) {
+    --sm-active: 54;
+}
+
+.side-menu:has(.side-menu-item:nth-child(56)) {
+    --sm-count: 56;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(56)) {
+    --sm-active: 55;
+}
+
+.side-menu:has(.side-menu-item:nth-child(57)) {
+    --sm-count: 57;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(57)) {
+    --sm-active: 56;
+}
+
+.side-menu:has(.side-menu-item:nth-child(58)) {
+    --sm-count: 58;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(58)) {
+    --sm-active: 57;
+}
+
+.side-menu:has(.side-menu-item:nth-child(59)) {
+    --sm-count: 59;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(59)) {
+    --sm-active: 58;
+}
+
+.side-menu:has(.side-menu-item:nth-child(60)) {
+    --sm-count: 60;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(60)) {
+    --sm-active: 59;
+}
+
+.side-menu:has(.side-menu-item:nth-child(61)) {
+    --sm-count: 61;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(61)) {
+    --sm-active: 60;
+}
+
+.side-menu:has(.side-menu-item:nth-child(62)) {
+    --sm-count: 62;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(62)) {
+    --sm-active: 61;
+}
+
+.side-menu:has(.side-menu-item:nth-child(63)) {
+    --sm-count: 63;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(63)) {
+    --sm-active: 62;
+}
+
+.side-menu:has(.side-menu-item:nth-child(64)) {
+    --sm-count: 64;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(64)) {
+    --sm-active: 63;
+}
+
+.side-menu:has(.side-menu-item:nth-child(65)) {
+    --sm-count: 65;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(65)) {
+    --sm-active: 64;
+}
+
+.side-menu:has(.side-menu-item:nth-child(66)) {
+    --sm-count: 66;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(66)) {
+    --sm-active: 65;
+}
+
+.side-menu:has(.side-menu-item:nth-child(67)) {
+    --sm-count: 67;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(67)) {
+    --sm-active: 66;
+}
+
+.side-menu:has(.side-menu-item:nth-child(68)) {
+    --sm-count: 68;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(68)) {
+    --sm-active: 67;
+}
+
+.side-menu:has(.side-menu-item:nth-child(69)) {
+    --sm-count: 69;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(69)) {
+    --sm-active: 68;
+}
+
+.side-menu:has(.side-menu-item:nth-child(70)) {
+    --sm-count: 70;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(70)) {
+    --sm-active: 69;
+}
+
+.side-menu:has(.side-menu-item:nth-child(71)) {
+    --sm-count: 71;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(71)) {
+    --sm-active: 70;
+}
+
+.side-menu:has(.side-menu-item:nth-child(72)) {
+    --sm-count: 72;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(72)) {
+    --sm-active: 71;
+}
+
+.side-menu:has(.side-menu-item:nth-child(73)) {
+    --sm-count: 73;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(73)) {
+    --sm-active: 72;
+}
+
+.side-menu:has(.side-menu-item:nth-child(74)) {
+    --sm-count: 74;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(74)) {
+    --sm-active: 73;
+}
+
+.side-menu:has(.side-menu-item:nth-child(75)) {
+    --sm-count: 75;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(75)) {
+    --sm-active: 74;
+}
+
+.side-menu:has(.side-menu-item:nth-child(76)) {
+    --sm-count: 76;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(76)) {
+    --sm-active: 75;
+}
+
+.side-menu:has(.side-menu-item:nth-child(77)) {
+    --sm-count: 77;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(77)) {
+    --sm-active: 76;
+}
+
+.side-menu:has(.side-menu-item:nth-child(78)) {
+    --sm-count: 78;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(78)) {
+    --sm-active: 77;
+}
+
+.side-menu:has(.side-menu-item:nth-child(79)) {
+    --sm-count: 79;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(79)) {
+    --sm-active: 78;
+}
+
+.side-menu:has(.side-menu-item:nth-child(80)) {
+    --sm-count: 80;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(80)) {
+    --sm-active: 79;
+}
+
+.side-menu:has(.side-menu-item:nth-child(81)) {
+    --sm-count: 81;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(81)) {
+    --sm-active: 80;
+}
+
+.side-menu:has(.side-menu-item:nth-child(82)) {
+    --sm-count: 82;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(82)) {
+    --sm-active: 81;
+}
+
+.side-menu:has(.side-menu-item:nth-child(83)) {
+    --sm-count: 83;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(83)) {
+    --sm-active: 82;
+}
+
+.side-menu:has(.side-menu-item:nth-child(84)) {
+    --sm-count: 84;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(84)) {
+    --sm-active: 83;
+}
+
+.side-menu:has(.side-menu-item:nth-child(85)) {
+    --sm-count: 85;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(85)) {
+    --sm-active: 84;
+}
+
+.side-menu:has(.side-menu-item:nth-child(86)) {
+    --sm-count: 86;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(86)) {
+    --sm-active: 85;
+}
+
+.side-menu:has(.side-menu-item:nth-child(87)) {
+    --sm-count: 87;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(87)) {
+    --sm-active: 86;
+}
+
+.side-menu:has(.side-menu-item:nth-child(88)) {
+    --sm-count: 88;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(88)) {
+    --sm-active: 87;
+}
+
+.side-menu:has(.side-menu-item:nth-child(89)) {
+    --sm-count: 89;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(89)) {
+    --sm-active: 88;
+}
+
+.side-menu:has(.side-menu-item:nth-child(90)) {
+    --sm-count: 90;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(90)) {
+    --sm-active: 89;
+}
+
+.side-menu:has(.side-menu-item:nth-child(91)) {
+    --sm-count: 91;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(91)) {
+    --sm-active: 90;
+}
+
+.side-menu:has(.side-menu-item:nth-child(92)) {
+    --sm-count: 92;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(92)) {
+    --sm-active: 91;
+}
+
+.side-menu:has(.side-menu-item:nth-child(93)) {
+    --sm-count: 93;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(93)) {
+    --sm-active: 92;
+}
+
+.side-menu:has(.side-menu-item:nth-child(94)) {
+    --sm-count: 94;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(94)) {
+    --sm-active: 93;
+}
+
+.side-menu:has(.side-menu-item:nth-child(95)) {
+    --sm-count: 95;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(95)) {
+    --sm-active: 94;
+}
+
+.side-menu:has(.side-menu-item:nth-child(96)) {
+    --sm-count: 96;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(96)) {
+    --sm-active: 95;
+}
+
+.side-menu:has(.side-menu-item:nth-child(97)) {
+    --sm-count: 97;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(97)) {
+    --sm-active: 96;
+}
+
+.side-menu:has(.side-menu-item:nth-child(98)) {
+    --sm-count: 98;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(98)) {
+    --sm-active: 97;
+}
+
+.side-menu:has(.side-menu-item:nth-child(99)) {
+    --sm-count: 99;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(99)) {
+    --sm-active: 98;
+}
+
+.side-menu:has(.side-menu-item:nth-child(100)) {
+    --sm-count: 100;
+}
+
+.side-menu:has(.side-menu-item.active:nth-child(100)) {
+    --sm-active: 99;
+}
